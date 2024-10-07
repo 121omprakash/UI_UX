@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" href="/munim.png"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&q=80&w=1080');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-container h1 {
+            color: #6c63ff;
+            margin-bottom: 20px;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .login-container button {
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .login-container button:hover {
+            background-color: #5a54e0;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .remember-me input {
+            margin-right: 5px;
+        }
+
+        .forgot-password {
+            margin-top: 10px;
+            color: #6c63ff;
+            text-decoration: none;
+        }
+
+        .icon {
+            font-size: 50px; /* Adjust icon size */
+            margin-bottom: 20px;
+            color: #6c63ff; /* Icon color */
+        }
+        img {
+            width:150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <!-- <i class="fas fa-user icon"></i> User icon -->
+        <img src="/munim.webp" height="80px" >
+        <h1>LOG IN</h1>
+        <form onsubmit="login(); return false;">
+            <input type="text" id="Username" placeholder="Username" required>
+            <input type="password" id="Password" placeholder="Password" required>
+            <div class="remember-me">
+                <input type="checkbox" id="remember">
+                <label for="remember">Remember me</label>
+            </div>
+            <button type="submit">Login</button>
+            <a href="forget.html" class="forgot-password">Forgot Password?</a>
+            <a href="register.html" class="forgot-password">Register</a>
+        </form>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById('Username').value;
+            const password = document.getElementById('Password').value;
+
+            // Simulated login credentials
+            const validUsername = 'user';
+            const validPassword = 'password';
+
+            if (username === validUsername && password === validPassword) {
+                // Redirect to main dashboard if login is successful
+                window.location.href = "../Pages/Dashboard/dashboard.html"; // Assuming your dashboard page is named dashboard.html
+            } else {
+                // Show error message for invalid login
+                alert('Invalid username or password. Please try again.');
+            }
+        }
+    </script>
+
+</body>
+</html>
