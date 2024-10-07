@@ -1,0 +1,97 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #FDEAEF;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sidebar h2 {
+    display: flex;
+    align-items: center;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+
+  .sidebar h2 img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .sidebar button {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    background: none; 
+    /*#F6A5A5 */
+    border: none;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    color: #ff6347;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+
+
+  .sidebar button.sidehome {
+    background-color: rgb(102, 96, 96); /* White background for Dashboard button */
+    color: #ff6347; /* Black text color */
+    font-weight: bold; /* Make the text bold */
+}
+
+
+.sidebar button.sidehome:hover {
+    background-color: rgb(102, 96, 96); /* Darker effect on hover for Dashboard */
+}
+
+
+  .sidebar button i {
+    margin-right: 10px;
+  }
+
+  .sidebar button:hover {
+    background-color: #ffddc1;
+  }
+
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.wallet-container {
+    padding: 20px;
+}
+
+#walletBalance {
+    font-size: 24px;
+    color: green;
+}
