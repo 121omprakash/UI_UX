@@ -3,13 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions</title>
     <link rel="icon" href="/munim.png"> 
-    <title>Wallet</title>
-    <link rel="stylesheet" href="wallet.css">
+    <link rel="stylesheet" href="transaction.css">
 </head>
 <body>
+    <button id="darkModeToggle" class="mode-toggle">
+        <img src="/dark.png" alt="Dark/Light Mode" width="500px">
+      </button>
+    
+      <!-- Sign Out Button at Top Right -->
+    <button id="signOutBtn" class="sign-out">
+    Sign Out
+    </button>
+    
+    <div class="header">
+        <h1>Welcome, Ashish Singh</h1>
+        <img src="/profile.jpg" alt="Profile Picture">
+    </div>
     <div class="navbar">
-        <h1>Financial Dashboard - Wallet</h1>
+        <h1>Financial Dashboard - Transactions</h1>
         <div class="user-profile">
             <img src="path-to-profile-picture" alt="Profile Picture">
             <div class="user-name">Ashish Singh</div>
@@ -22,11 +35,11 @@
             <i class="fas fa-tachometer-alt"></i>Dashboard
         </button>
         
-        <button onclick="window.location.href='../Transaction/transaction.html'">
+        <button class="sidehome">
             <i class="fas fa-exchange-alt"></i>Transactions
         </button>
         
-        <button class="sidehome">
+        <button onclick="window.location.href='../Wallet/wallet.html'">
             <i class="fas fa-wallet"></i>Wallet
         </button>
         
@@ -46,11 +59,23 @@
             <i class="fas fa-cog"></i>Settings
         </button>
     </div>
-    <div class="wallet-container">
-        <h2>Wallet Balance</h2>
-        <div id="walletBalance"></div>
+    <div class="transaction-container">
+        <h2>Recent Transactions</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody id="transactionTableBody">
+                <!-- Transactions will be dynamically inserted here -->
+            </tbody>
+        </table>
     </div>
 
-    <script src="js/wallet.js"></script>
+    <script src="js/transaction.js"></script>
 </body>
 </html>
