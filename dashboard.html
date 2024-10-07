@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Dashboard</title>
+  <link rel="icon" href="/munim.png"> 
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+ 
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2><img src="/munim.webp" alt="Logo"> Munim</h2>
+    
+    <button class="sidehome">
+        <i class="fas fa-tachometer-alt"></i>Dashboard
+    </button>
+    
+    <button onclick="window.location.href='../Transaction/transaction.html'">
+        <i class="fas fa-exchange-alt"></i>Transactions
+    </button>
+    
+    <button onclick="window.location.href='../Wallet/wallet.html'">
+        <i class="fas fa-wallet"></i>Wallet
+    </button>
+    
+    <button onclick="window.location.href='../Goals/goals.html'">
+        <i class="fas fa-bullseye"></i>Goals
+    </button>
+    
+    <button onclick="window.location.href='../Analytics/analytics.html'">
+        <i class="fas fa-chart-pie"></i>Analytics
+    </button>
+    
+    <button onclick="window.location.href='../Budget/budget.html'">
+        <i class="fas fa-balance-scale"></i>Budget
+    </button>
+    
+    <button onclick="window.location.href='../Setting/setting.html'">
+        <i class="fas fa-cog"></i>Settings
+    </button>
+</div>
+
+
+  <!-- Dark/Light Mode Button at Bottom Left -->
+  <button id="darkModeToggle" class="mode-toggle">
+    <img src="dark.png" alt="Dark/Light Mode" width="500px">
+  </button>
+
+  <!-- Sign Out Button at Top Right -->
+  <button id="signOutBtn" class="sign-out">
+    Sign Out
+  </button>
+
+  <div class="main-content">
+    <div class="header">
+      <h1>Welcome, Ashish Singh</h1>
+      <img src="profile.jpg" alt="Profile Picture">
+    </div>
+
+    <div class="summary-cards">
+      <div class="card">
+        <h3>Total Balance</h3>
+        <p>$95,000</p>
+        <i class="fas fa-angle-right expand"></i>
+        <span class="percentage green">+10%</span>
+      </div>
+      <div class="card">
+        <h3>Income</h3>
+        <p>$8,500</p>
+        <i class="fas fa-angle-right expand"></i>
+        <span class="percentage red">-10%</span>
+      </div>
+      <div class="card">
+        <h3>Expenses</h3>
+        <p>$6,500</p>
+        <i class="fas fa-angle-right expand"></i>
+        <span class="percentage red">+10%</span>
+      </div>
+      <div class="card">
+        <h3>Savings</h3>
+        <p>$93,000</p>
+        <i class="fas fa-angle-right expand"></i>
+        <span class="percentage green">+10%</span>
+      </div>
+    </div>
+
+    <!-- Flex container for both charts -->
+    <div class="chart-container">
+      <div class="chart">
+        <canvas id="barChart"></canvas>
+      </div>
+      
+      <div class="pie-chart">
+        <canvas id="pieChart"></canvas>
+        <div class="legend">
+          <div class="legend-item"><span style="background-color:#00c3ff;"></span>Groceries</div>
+          <div class="legend-item"><span style="background-color:#26e070;"></span>Shopping</div>
+          <div class="legend-item"><span style="background-color:#005bff;"></span>Education</div>
+          <div class="legend-item"><span style="background-color:#e2c72f;"></span>Subscription</div>
+          <div class="legend-item"><span style="background-color:#9656e7;"></span>Savings</div>
+          <div class="legend-item"><span style="background-color:#c49a6c;"></span>Rent</div>
+      </div>
+      
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <div class="transactions">
+        <h3>Recent Transactions</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Method</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Spotify</td>
+              <td>01/01/24</td>
+              <td>$5</td>
+              <td>Debit Card</td>
+              <td>Subscription</td>
+            </tr>
+            <tr>
+              <td>Laptop</td>
+              <td>02/03/24</td>
+              <td>$800</td>
+              <td>Credit Card</td>
+              <td>Shopping</td>
+            </tr>
+            <tr>
+              <td>Book</td>
+              <td>03/03/24</td>
+              <td>$10</td>
+              <td>Cash</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Rent</td>
+              <td>01/09/24</td>
+              <td>$200</td>
+              <td>Cash</td>
+              <td>Rent</td>
+            </tr>
+            <tr>
+              <td>School Fee</td>
+              <td>02/09/24</td>
+              <td>$80</td>
+              <td>UPI</td>
+              <td>Education</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="saving-goals">
+        <h3>Saving Goals</h3>
+        <div class="goal">
+          <span>Verna</span>
+          <div class="goal-progress">
+            <span style="width: 15%;"></span>
+          </div>
+        </div>
+        <div class="goal">
+          <span>iPad</span>
+          <div class="goal-progress">
+            <span style="width: 85%;"></span>
+          </div>
+        </div>
+        <div class="goal">
+          <span>Samsung TV</span>
+          <div class="goal-progress">
+            <span style="width: 95%;"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

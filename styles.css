@@ -1,0 +1,606 @@
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  .sidebar {
+    width: 20%;
+    background-color: #FDEAEF;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .sidebar h2 {
+    display: flex;
+    align-items: center;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+  
+  .sidebar h2 img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .sidebar button {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    background: none; 
+    border: none;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    color: #ff6347;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  
+  .sidebar button i {
+    margin-right: 10px;
+  }
+  
+  .sidebar button:hover {
+    background-color: #ffddc1;
+  }
+  
+  .main-content {
+    width: 80%;
+    padding: 2rem;
+    background-color: #fff;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .summary-cards {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+  }
+  
+  .card {
+    position: relative;
+    width: 22%;
+    background-color: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .card:hover .expand {
+    display: block;
+  }
+  
+  .card h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  
+  .card p {
+    font-size: 1.2rem;
+  }
+  
+  .card .expand {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: none;
+  }
+  
+  .percentage {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1rem;
+  }
+  
+  .green {
+    color: #26e070;
+  }
+  
+  .red {
+    color: #ff6347;
+  }
+  
+  .chart-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  
+  .chart, .pie-chart {
+    width: 48%;
+    padding: 1.5rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+  }
+  
+  .pie-chart {
+    position: relative;
+  }
+  
+  .legend {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .legend-item span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+  }
+  
+  .transactions, .saving-goals {
+    margin-top: 2rem;
+    background-color: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  
+  .transactions table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .transactions th, .transactions td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .transactions th {
+    background-color: #ff6347;
+    color: white;
+  }
+  
+  .saving-goals .goal {
+    margin-top: 1rem;
+  }
+  
+  .goal-progress {
+    width: 100%;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  
+  .goal-progress span {
+    display: block;
+    height: 100%;
+    background-color: #26e070;
+    border-radius: 5px;
+  }
+  
+  .mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dark-mode {
+    background-color: #333;
+    color: white;
+  }
+  
+  .dark-mode .card {
+    background-color: #444;
+  }
+  
+  .dark-mode .chart, .dark-mode .pie-chart, .dark-mode .transactions, .dark-mode .saving-goals {
+    background-color: #444;
+  }
+  
+  .sign-out {
+    position: fixed;
+    bottom: 70px;
+    left: 20px;
+    background-color: #ff6347;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+   */
+
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+  }
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+  }
+
+  .sidebar {
+    width: 30%;
+    background-color: #FDEAEF;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sidebar h2 {
+    display: flex;
+    align-items: center;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+
+  .sidebar h2 img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .sidebar button {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    background: none; 
+    /*#F6A5A5 */
+    border: none;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    color: #ff6347;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+
+
+  .sidebar button.sidehome {
+    background-color: rgb(102, 96, 96); /* White background for Dashboard button */
+    color: #ff6347; /* Black text color */
+    font-weight: bold; /* Make the text bold */
+}
+
+
+.sidebar button.sidehome:hover {
+    background-color: rgb(102, 96, 96); /* Darker effect on hover for Dashboard */
+}
+
+
+  .sidebar button i {
+    margin-right: 10px;
+  }
+
+  .sidebar button:hover {
+    background-color: #ffddc1;
+  }
+
+  .main-content {
+    width: 80%;
+    padding: 2rem;
+    background-color: #fff;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .summary-cards {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+  }
+
+  .card {
+    position: relative;
+    width: 22%;
+    background-color: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .card:hover .expand {
+    display: block;
+  }
+
+  .card h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+
+  .card p {
+    font-size: 1.2rem;
+  }
+
+  /* Dark/Light Mode Toggle Button */
+.mode-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #f0f0f0; /* Light background */
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mode-toggle img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Sign Out Button */
+.sign-out {
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+  background-color: #ff6347; /* Tomato color for sign out */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sign-out:hover {
+  background-color: #e55340;
+}
+
+/* Dark Mode Styles */
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #1e1e1e; /* Darker background for night mode */
+  color: #e0e0e0;
+  border-radius: 8px; /* Light text color for better contrast */
+}
+
+body.dark-mode .sidebar {
+  background-color: #5a4e4e; /* Dark sidebar */
+  color: #e55340;
+  border-radius: 8px;
+}
+
+body.dark-mode .sign-out:hover {
+  background-color: #f10808; /* Dark sidebar */
+  color: #0f0f0f;
+  border-radius: 8px;
+}
+
+body.dark-mode .main-content {
+  background-color: #2e2e2e; /* Dark main content area */
+}
+
+body.dark-mode .card {
+  background-color: #3c3c3c; /* Dark card background */
+  color: #e0e0e0; /* Light text color for card */
+}
+body.dark-mode .chart {
+  background-color: #3c3c3c; /* Dark card background */
+  color: #e0e0e0; /* Light text color for card */
+}
+
+body.dark-mode .pie-chart {
+  background-color: #3c3c3c; /* Dark card background */
+  color: #e0e0e0; /* Light text color for card */
+}
+
+body.dark-mode .transactions  {
+  background-color: #444; /* Darker header for the transactions table */
+}
+
+body.dark-mode .transactions th {
+  background-color: #e93d3d;
+  
+  ;/* Darker header for the transactions table */
+}
+
+body.dark-mode .transactions td {
+  background-color: #3c3c3c; /* Darker rows in transactions table */
+}
+
+body.dark-mode .saving-goals {
+  background-color: #3c3c3c; /* Darker background for saving goals */
+}
+
+body.dark-mode .goal-progress {
+  background-color: #555; /* Progress background */
+}
+
+body.dark-mode .sign-out {
+  background-color: #ff6347; /* Maintain tomato color for sign-out button */
+}
+
+
+body.dark-mode .sign-out {
+  background-color: #333;
+}
+
+  /* Expand icon and percentage */
+  .expand {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+  }
+
+  .percentage {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 0.9rem;
+  }
+
+  .percentage.green {
+    color: green;
+  }
+
+  .percentage.red {
+    color: red;
+  }
+
+  /* Flex container for charts */
+  .chart-container {
+      width: 10%;
+      margin: -15px;
+      display: flex;
+      justify-content: center;
+      align-items: right;
+      flex-direction: column;
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 2rem;
+  }
+
+/* 
+  .chart-container {
+    
+  } */
+
+      /* Custom legend styling */
+  .legend {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+  }
+
+  .legend-item {
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+  }
+
+  .legend-item span {
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+      margin-right: 5px;
+  }
+
+  .chart {
+    width: 704px;
+    height: 303px;
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .pie-chart {
+    width: 720px;
+    height: 310px;
+    background-color: rgb(243, 236, 236);
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+
+  .transactions, .saving-goals {
+    width: 720px;
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .transactions table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px; /* Add this line to round the table corners */
+    overflow: hidden; /* Ensures that the content inside respects the border radius */
+  }
+
+  .transactions th, .transactions td {
+    padding: 0.5rem;
+    border: none;
+    text-align: left;
+    background-color: #fff; /* Optional: Makes sure the content doesn't overlap the rounded border */
+  }
+
+  .transactions th {
+    background-color: #ffddc1;
+  }
+
+  .saving-goals {
+    width: 426px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .goal {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .goal-progress {
+    width: 75%;
+    background-color: #ddd;
+    height: 8px;
+    border-radius: 6px;
+    margin-left: 0.5rem;
+    position: relative;
+  }
+
+  .goal-progress span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #ff6347;
+    border-radius: 6px;
+  }
+
+  .pie-chart canvas, .chart canvas {
+    width: 100%;
+    height: 100%;
+  }
