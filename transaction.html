@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions</title>
+    <link rel="icon" href="/munim.png"> 
+    <link rel="stylesheet" href="transaction.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Financial Dashboard - Transactions</h1>
+        <div class="user-profile">
+            <img src="path-to-profile-picture" alt="Profile Picture">
+            <div class="user-name">Ashish Singh</div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <h2><img src="/munim.webp" alt="Logo"> Munim</h2>
+        
+        <button onclick="window.location.href='../Dashboard/dashboard.html'">
+            <i class="fas fa-tachometer-alt"></i>Dashboard
+        </button>
+        
+        <button class="sidehome">
+            <i class="fas fa-exchange-alt"></i>Transactions
+        </button>
+        
+        <button onclick="window.location.href='../Wallet/wallet.html'">
+            <i class="fas fa-wallet"></i>Wallet
+        </button>
+        
+        <button onclick="window.location.href='../Goals/goals.html'">
+            <i class="fas fa-bullseye"></i>Goals
+        </button>
+        
+        <button onclick="window.location.href='../Analytics/analytics.html'">
+            <i class="fas fa-chart-pie"></i>Analytics
+        </button>
+        
+        <button onclick="window.location.href='../Budget/budget.html'">
+            <i class="fas fa-balance-scale"></i>Budget
+        </button>
+        
+        <button onclick="window.location.href='../Setting/setting.html'">
+            <i class="fas fa-cog"></i>Settings
+        </button>
+    </div>
+    <div class="transaction-container">
+        <h2>Recent Transactions</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody id="transactionTableBody">
+                <!-- Transactions will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="js/transaction.js"></script>
+</body>
+</html>
