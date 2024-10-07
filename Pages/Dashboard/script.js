@@ -77,7 +77,7 @@ darkModeToggle.addEventListener('click', () => {
 const signOutBtn = document.getElementById('signOutBtn');
 signOutBtn.addEventListener('click', () => {
     // Redirect to the login page when signing out
-    window.location.href = '/../../Login/login.html'; // Ensure this path is correct based on your file structure
+    window.location.href = '/../../index.html'; // Ensure this path is correct based on your file structure
 });
 
 
