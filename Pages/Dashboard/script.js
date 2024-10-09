@@ -80,7 +80,7 @@ if(localStorage.getItem('isLoggedIn')!==true)
 const signOutBtn = document.getElementById('signOutBtn');
 signOutBtn.addEventListener('click', () => {
     // Redirect to the login page when signing out
-    localStorage.removeItem('isLoggedIn');
+    localStorage.setItem('isLoggedIn',false);
     window.location.href = 'https://121omprakash.github.io/UI_UX/';
 });
 
