@@ -72,7 +72,7 @@ darkModeToggle.addEventListener('click', () => {
     }
 });
 
-if(localStorage.getItem('isLoggedIn')!==true)
+if(localStorage.getItem('isLoggedIn')==true)
 {
     window.location.href = 'https://121omprakash.github.io/UI_UX/';
 }
