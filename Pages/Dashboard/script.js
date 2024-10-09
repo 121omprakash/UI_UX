@@ -79,4 +79,11 @@ signOutBtn.addEventListener('click', () => {
     window.location.href = 'https://121omprakash.github.io/UI_UX/';
 });
 
+// JavaScript to toggle sidebar visibility
+const toggleBtn = document.querySelector('.menu-toggle');
+const sidebar = document.querySelector('.sidebar');
+
+toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('hidden');  // Add/remove 'hidden' class to show/hide sidebar
+});
 
