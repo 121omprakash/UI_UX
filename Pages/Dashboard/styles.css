@@ -240,7 +240,7 @@
    */
 
 
-  * {
+   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -292,6 +292,9 @@
     border-radius: 6px;
   }
 
+  .sidebar button .menu-toggle{
+    margin: 80px;
+  }
 
   .sidebar button.sidehome {
     background-color: rgb(102, 96, 96); /* White background for Dashboard button */
@@ -300,9 +303,9 @@
 }
 
 
-.sidebar button.sidehome:hover {
-    background-color: rgb(102, 96, 96); /* Darker effect on hover for Dashboard */
-}
+  .sidebar button.sidehome:hover {
+      background-color: rgb(102, 96, 96); /* Darker effect on hover for Dashboard */
+  }
 
 
   .sidebar button i {
@@ -604,6 +607,3 @@ body.dark-mode .sign-out {
     width: 100%;
     height: 100%;
   }
-  .hidden {
-    display: none; /* Sidebar is hidden when this class is added */
-}
