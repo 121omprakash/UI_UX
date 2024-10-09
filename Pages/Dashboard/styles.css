@@ -240,48 +240,55 @@
    */
 
 
-  * {
+   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
   }
-
+  
   body {
     display: flex;
     min-height: 100vh;
     background-color: #f5f5f5;
+    flex-direction: column;
   }
-
+  
   .sidebar {
-    width: 30%;
+    width: 100%; /* Make it full width on smaller screens */
     background-color: #FDEAEF;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
-
+  
+  /* Adjust width for larger screens */
+  @media (min-width: 768px) {
+    .sidebar {
+      width: 30%;
+    }
+  }
+  
   .sidebar h2 {
     display: flex;
     align-items: center;
     color: #333;
     margin-bottom: 2rem;
   }
-
+  
   .sidebar h2 img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-right: 10px;
   }
-
+  
   .sidebar button {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
-    background: none; 
-    /*#F6A5A5 */
+    background: none;
     border: none;
     padding: 10px 15px;
     width: 100%;
@@ -291,297 +298,211 @@
     cursor: pointer;
     border-radius: 6px;
   }
-
-
+  
   .sidebar button.sidehome {
-    background-color: rgb(102, 96, 96); /* White background for Dashboard button */
-    color: #ff6347; /* Black text color */
-    font-weight: bold; /* Make the text bold */
-}
-
-
-.sidebar button.sidehome:hover {
-    background-color: rgb(102, 96, 96); /* Darker effect on hover for Dashboard */
-}
-
-
-  .sidebar button i {
-    margin-right: 10px;
+    background-color: rgb(102, 96, 96);
+    color: #ff6347;
+    font-weight: bold;
   }
-
+  
+  .sidebar button.sidehome:hover {
+    background-color: rgb(102, 96, 96);
+  }
+  
   .sidebar button:hover {
     background-color: #ffddc1;
   }
-
+  
   .main-content {
-    width: 80%;
+    width: 100%; /* Make it full width on smaller screens */
     padding: 2rem;
     background-color: #fff;
   }
-
+  
+  /* Adjust width for larger screens */
+  @media (min-width: 768px) {
+    .main-content {
+      width: 80%;
+    }
+  }
+  
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-
+  
   .header img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
   }
-
+  
   .summary-cards {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     margin: 2rem 0;
+    gap: 1.5rem; /* Space between cards */
   }
-
+  
+  /* Adjust card layout for larger screens */
+  @media (min-width: 768px) {
+    .summary-cards {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+  
   .card {
     position: relative;
-    width: 22%;
+    width: 100%; /* Full width on smaller screens */
     background-color: #f5f5f5;
     padding: 1.5rem;
     border-radius: 8px;
     text-align: center;
     cursor: pointer;
   }
-
+  
+  /* Adjust card width for larger screens */
+  @media (min-width: 768px) {
+    .card {
+      width: 22%;
+    }
+  }
+  
   .card:hover .expand {
     display: block;
   }
-
+  
   .card h3 {
     margin-bottom: 10px;
     font-size: 1.5rem;
   }
-
+  
   .card p {
     font-size: 1.2rem;
   }
-
-  /* Dark/Light Mode Toggle Button */
-.mode-toggle {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background-color: #f0f0f0; /* Light background */
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.mode-toggle img {
-  width: 24px;
-  height: 24px;
-}
-
-/* Sign Out Button */
-.sign-out {
-  position: fixed;
-  bottom: 80px;
-  left: 20px;
-  background-color: #ff6347; /* Tomato color for sign out */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.sign-out:hover {
-  background-color: #e55340;
-}
-
-/* Dark Mode Styles */
-/* Dark Mode Styles */
-body.dark-mode {
-  background-color: #1e1e1e; /* Darker background for night mode */
-  color: #e0e0e0;
-  border-radius: 8px; /* Light text color for better contrast */
-}
-
-body.dark-mode .sidebar {
-  background-color: #5a4e4e; /* Dark sidebar */
-  color: #e55340;
-  border-radius: 8px;
-}
-
-body.dark-mode .sign-out:hover {
-  background-color: #f10808; /* Dark sidebar */
-  color: #0f0f0f;
-  border-radius: 8px;
-}
-
-body.dark-mode .main-content {
-  background-color: #2e2e2e; /* Dark main content area */
-}
-
-body.dark-mode .card {
-  background-color: #3c3c3c; /* Dark card background */
-  color: #e0e0e0; /* Light text color for card */
-}
-body.dark-mode .chart {
-  background-color: #3c3c3c; /* Dark card background */
-  color: #e0e0e0; /* Light text color for card */
-}
-
-body.dark-mode .pie-chart {
-  background-color: #3c3c3c; /* Dark card background */
-  color: #e0e0e0; /* Light text color for card */
-}
-
-body.dark-mode .transactions  {
-  background-color: #444; /* Darker header for the transactions table */
-}
-
-body.dark-mode .transactions th {
-  background-color: #e93d3d;
   
-  ;/* Darker header for the transactions table */
-}
-
-body.dark-mode .transactions td {
-  background-color: #3c3c3c; /* Darker rows in transactions table */
-}
-
-body.dark-mode .saving-goals {
-  background-color: #3c3c3c; /* Darker background for saving goals */
-}
-
-body.dark-mode .goal-progress {
-  background-color: #555; /* Progress background */
-}
-
-body.dark-mode .sign-out {
-  background-color: #ff6347; /* Maintain tomato color for sign-out button */
-}
-
-
-body.dark-mode .sign-out {
-  background-color: #333;
-}
-
-  /* Expand icon and percentage */
-  .expand {
-    display: none;
-    position: absolute;
-    right: 10px;
-    top: 10px;
+  /* Dark/Light Mode Toggle Button */
+  .mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
     cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   }
-
-  .percentage {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: 0.9rem;
+  
+  .mode-toggle img {
+    width: 24px;
+    height: 24px;
   }
-
-  .percentage.green {
-    color: green;
+  
+  /* Sign Out Button */
+  .sign-out {
+    position: fixed;
+    bottom: 80px;
+    left: 20px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
   }
-
-  .percentage.red {
-    color: red;
+  
+  .sign-out:hover {
+    background-color: #e55340;
   }
-
-  /* Flex container for charts */
+  
+  /* Dark Mode Styles */
+  body.dark-mode {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+  }
+  
+  body.dark-mode .sidebar {
+    background-color: #5a4e4e;
+    color: #e55340;
+  }
+  
+  body.dark-mode .main-content {
+    background-color: #2e2e2e;
+  }
+  
+  body.dark-mode .card {
+    background-color: #3c3c3c;
+    color: #e0e0e0;
+  }
+  
+  /* Responsive Chart Container */
   .chart-container {
-      width: 10%;
-      margin: -15px;
-      display: flex;
-      justify-content: center;
-      align-items: right;
-      flex-direction: column;
-      display: flex;
-      justify-content: space-between;
-      gap: 2rem;
-      margin-bottom: 2rem;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
   }
-
-/* 
-  .chart-container {
-    
-  } */
-
-      /* Custom legend styling */
-  .legend {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-  }
-
-  .legend-item {
-      display: flex;
-      align-items: center;
-      margin-right: 10px;
-  }
-
-  .legend-item span {
-      width: 15px;
-      height: 15px;
-      display: inline-block;
-      margin-right: 5px;
-  }
-
+  
   .chart {
-    width: 704px;
-    height: 303px;
+    width: 100%; /* Full width on smaller screens */
+    height: auto;
     background-color: #f5f5f5;
     padding: 1rem;
     border-radius: 8px;
   }
-
+  
   .pie-chart {
-    width: 720px;
-    height: 310px;
+    width: 100%;
+    height: auto;
     background-color: rgb(243, 236, 236);
     padding: 1rem;
     border-radius: 8px;
   }
-
-
+  
+  /* Responsive Transactions and Saving Goals */
   .transactions, .saving-goals {
-    width: 720px;
+    width: 100%;
     background-color: #f5f5f5;
     padding: 1rem;
     border-radius: 8px;
     margin-bottom: 1.5rem;
   }
-
+  
   .transactions table {
     width: 100%;
     border-collapse: collapse;
-    border-radius: 8px; /* Add this line to round the table corners */
-    overflow: hidden; /* Ensures that the content inside respects the border radius */
+    border-radius: 8px;
+    overflow: hidden;
   }
-
+  
   .transactions th, .transactions td {
     padding: 0.5rem;
     border: none;
     text-align: left;
-    background-color: #fff; /* Optional: Makes sure the content doesn't overlap the rounded border */
+    background-color: #fff;
   }
-
+  
   .transactions th {
     background-color: #ffddc1;
   }
-
+  
   .saving-goals {
-    width: 426px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
-
+  
   .goal {
     display: flex;
     justify-content: space-between;
   }
-
+  
   .goal-progress {
     width: 75%;
     background-color: #ddd;
@@ -590,7 +511,7 @@ body.dark-mode .sign-out {
     margin-left: 0.5rem;
     position: relative;
   }
-
+  
   .goal-progress span {
     position: absolute;
     top: 0;
@@ -599,8 +520,9 @@ body.dark-mode .sign-out {
     background-color: #ff6347;
     border-radius: 6px;
   }
-
+  
   .pie-chart canvas, .chart canvas {
     width: 100%;
     height: 100%;
   }
+  

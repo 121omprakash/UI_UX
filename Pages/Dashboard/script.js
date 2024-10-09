@@ -72,18 +72,10 @@ darkModeToggle.addEventListener('click', () => {
     }
 });
 
-if(localStorage.getItem('isLoggedIn')!==true)
-{
-    window.location.href = 'https://121omprakash.github.io/UI_UX/';
-}
-else{
-    window.location.href = "https://121omprakash.github.io/UI_UX/Pages/Dashboard/dashboard.html";
-}
 // Sign Out Button
 const signOutBtn = document.getElementById('signOutBtn');
 signOutBtn.addEventListener('click', () => {
     // Redirect to the login page when signing out
-    localStorage.setItem('isLoggedIn',false);
     window.location.href = 'https://121omprakash.github.io/UI_UX/';
 });
 
