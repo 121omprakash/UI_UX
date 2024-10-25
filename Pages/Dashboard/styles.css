@@ -1,240 +1,311 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 240px;
+  background-color: #f0ebe1;
+  padding: 20px;
+  transition: width 0.3s ease;
+}
+
+.sidebar h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.sidebar button {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  color: #333;
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 10px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sidebar button i {
+  margin-right: 10px;
+}
+
+.sidebar button:hover {
+  background-color: #d6cdc5;
+  border-radius: 8px;
+  transform: scale(1.05);
+}
+
+.sidebar .active {
+  background-color: #c5baaf;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 260px;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Summary Cards */
+.summary-cards {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 23%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.percentage {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.percentage.green {
+  color: green;
+}
+
+.percentage.red {
+  color: red;
+}
+
+/* Charts */
+.chart-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.chart, .pie-chart {
+  width: 48%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chart:hover, .pie-chart:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Recent Transactions & Saving Goals */
+.transactions, .saving-goals {
+  width: 48%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transactions:hover, .saving-goals:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.transactions table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transactions th, .transactions td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.transactions th {
+  background-color: #e9ecef;
+  font-weight: bold;
+}
+
+.transactions tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+/* Saving Goals */
+.saving-goals .goal {
+  margin-bottom: 15px;
+}
+
+.goal-progress {
+  background-color: #e9ecef;
+  height: 10px;
+  width: 100%;
+  border-radius: 6px;
+  position: relative;
+}
+
+.goal-progress span {
+  display: block;
+  height: 100%;
+  background-color: #ff6f61;
+  border-radius: 6px;
+}
+
+/* Mode Toggle */
+.mode-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.mode-toggle img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Sign Out Button */
+.sign-out {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.sign-out:hover {
+  background-color: #e55b4b;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #2e2e2e;
+  color: #fff;
+}
+
+.sidebar.dark-mode {
+  background-color: #1e1e1e;
+}
+
+.card.dark-mode, .chart.dark-mode, .pie-chart.dark-mode, .transactions.dark-mode, .saving-goals.dark-mode {
+  background-color: #333;
+  color: white;
+}
+
+.mode-toggle.dark-mode {
+  background-color: #1e1e1e;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .summary-cards, .chart-container {
+    flex-direction: column;
   }
-  
-  body {
-    display: flex;
-    min-height: 100vh;
-    background-color: #f5f5f5;
+
+  .summary-cards .card, .chart, .pie-chart, .transactions, .saving-goals {
+    width: 100%;
+    margin-bottom: 20px;
   }
-  
+}
+
+@media (max-width: 768px) {
   .sidebar {
-    width: 20%;
-    background-color: #FDEAEF;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    width: 180px;
   }
-  
-  .sidebar h2 {
-    display: flex;
-    align-items: center;
-    color: #333;
-    margin-bottom: 2rem;
-  }
-  
-  .sidebar h2 img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .sidebar button {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-    background: none; 
-    border: none;
-    padding: 10px 15px;
-    width: 100%;
-    text-align: left;
-    font-size: 1rem;
-    color: #ff6347;
-    cursor: pointer;
-    border-radius: 6px;
-  }
-  
-  .sidebar button i {
-    margin-right: 10px;
-  }
-  
-  .sidebar button:hover {
-    background-color: #ffddc1;
-  }
-  
+
   .main-content {
-    width: 80%;
-    padding: 2rem;
-    background-color: #fff;
+    margin-left: 200px;
   }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
+
   .header img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    width: 30px;
+    height: 30px;
   }
-  
-  .summary-cards {
-    display: flex;
-    justify-content: space-around;
-    margin: 2rem 0;
+}
+
+@media (max-width: 576px) {
+  .sidebar {
+    width: 150px;
   }
-  
-  .card {
-    position: relative;
-    width: 22%;
-    background-color: #f5f5f5;
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
-    cursor: pointer;
+
+  .main-content {
+    margin-left: 170px;
   }
-  
-  .card:hover .expand {
-    display: block;
+
+  .header img {
+    width: 24px;
+    height: 24px;
   }
-  
-  .card h3 {
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-  }
-  
-  .card p {
-    font-size: 1.2rem;
-  }
-  
-  .card .expand {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: none;
-  }
-  
-  .percentage {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 1rem;
-  }
-  
-  .green {
-    color: #26e070;
-  }
-  
-  .red {
-    color: #ff6347;
-  }
-  
-  .chart-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-  }
-  
-  .chart, .pie-chart {
-    width: 48%;
-    padding: 1.5rem;
-    background-color: #f5f5f5;
-    border-radius: 8px;
-  }
-  
-  .pie-chart {
-    position: relative;
-  }
-  
-  .legend {
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .legend-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-  }
-  
-  .legend-item span {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin-right: 5px;
-  }
-  
-  .transactions, .saving-goals {
-    margin-top: 2rem;
-    background-color: #f5f5f5;
-    padding: 1.5rem;
-    border-radius: 8px;
-  }
-  
-  .transactions table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .transactions th, .transactions td {
-    padding: 10px;
-    border: 1px solid #ddd;
-  }
-  
-  .transactions th {
-    background-color: #ff6347;
-    color: white;
-  }
-  
-  .saving-goals .goal {
-    margin-top: 1rem;
-  }
-  
-  .goal-progress {
-    width: 100%;
-    height: 10px;
-    background-color: #ddd;
-    border-radius: 5px;
-    margin-top: 5px;
-  }
-  
-  .goal-progress span {
-    display: block;
-    height: 100%;
-    background-color: #26e070;
-    border-radius: 5px;
-  }
-  
-  .mode-toggle {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .dark-mode {
-    background-color: #333;
-    color: white;
-  }
-  
-  .dark-mode .card {
-    background-color: #444;
-  }
-  
-  .dark-mode .chart, .dark-mode .pie-chart, .dark-mode .transactions, .dark-mode .saving-goals {
-    background-color: #444;
-  }
-  
-  .sign-out {
-    position: fixed;
-    bottom: 70px;
-    left: 20px;
-    background-color: #ff6347;
-    border: none;
-    padding: 10px 20px;
-    color: white;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  /* <--Added Comment--> */
+}
